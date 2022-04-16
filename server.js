@@ -72,7 +72,7 @@ if (args.debug == 'true'){
   })
 
   app.get("/app/error", (req, res)=>{
-    res.status(200).send("Error test successful")
+    throw new Error("Error test successful")
   })
 
 }
