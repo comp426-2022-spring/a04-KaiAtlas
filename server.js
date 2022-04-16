@@ -14,6 +14,10 @@ const { networkInterfaces } = require('os')
 const args = require("minimist")(process.argv.slice(2))
 const port = args.port || 5555
 
+const server =  app.listen(port,() =>{
+  console.log('App is running on port %PORT%'.replace('%PORT%', port))
+})
+
 const help = (`
 server.js [options]
 
@@ -54,27 +58,23 @@ app.use((req, res, next)=>{
   next()
 })
 
-const server =  app.listen(port,() =>{
-    console.log('App is running on port %PORT%'.replace('%PORT%', port))
-})
+// app.get('/app/', (req, res) =>{
+//   res.statusCode = 200;
+//   res.statusMessage = 'OK';
+//   res.writeHead( res.statusCode, { 'Content-Type' : 'text/plain' });
+//   res.end(res.statusCode+ ' ' +res.statusMessage)
+// })
 
-app.get('/app/', (req, res) =>{
-  res.statusCode = 200;
-  res.statusMessage = 'OK';
-  res.writeHead( res.statusCode, { 'Content-Type' : 'text/plain' });
-  res.end(res.statusCode+ ' ' +res.statusMessage)
-})
-
-if (args.debug == 'true'){
+if (args.debug){
   app.get("/app/log/access", (req, res)=>{
   const stmt = logdb.prepare('SELECT * FROM accesslog').all()    //give you all the record, use get() to select
   res.status(200).json(stmt)
    
-})
+});
 
   app.get("/app/error", (req, res)=>{
     throw new Error("Error test successful")
-  })
+  });
 
 }
 
