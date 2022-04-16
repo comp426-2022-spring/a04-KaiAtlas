@@ -1,0 +1,29 @@
+{
+  "name": "a04-kaiatlas",
+  "version": "1.0.0",
+  "description": "Databases, logs, errors, and middleware",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2022-spring/a04-KaiAtlas.git"
+  },
+  "keywords": [
+    "database"
+  ],
+  "author": "Zhenkai Zhu",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/comp426-2022-spring/a04-KaiAtlas/issues"
+  },
+  "homepage": "https://github.com/comp426-2022-spring/a04-KaiAtlas#readme",
+  "dependencies": {
+    "better-sqlite3": "^7.5.1",
+    "express": "^4.17.3",
+    "minimist": "^1.2.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+  }
+}
