@@ -67,9 +67,10 @@ app.get('/app/', (req, res) =>{
 
 if (args.debug == 'true'){
   app.get("/app/log/access", (req, res)=>{
-    const stmt = logdb.prepare('SELECT *FROM accesslog').all()    //give you all the record, use get() to select
-    res.status(200).json(stmt)
-  })
+  const stmt = logdb.prepare('SELECT * FROM accesslog').all()    //give you all the record, use get() to select
+  res.status(200).json(stmt)
+   
+})
 
   app.get("/app/error", (req, res)=>{
     throw new Error("Error test successful")
