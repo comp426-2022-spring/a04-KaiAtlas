@@ -4,7 +4,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 const morgan = require('morgan')
-let logging = app.use(morgan('combined'))
+// let logging = app.use(morgan('combined'))
 
 const fs = require('fs')
 
@@ -186,8 +186,7 @@ app.get('/app/flip/call/:guess', (req, res) =>{
 })
 
 
-app.use(function(req,res ){
+app.use(function(req,res){
     res.status(404).send('404 Not found')
-    res.type("text/plain")
 })
 
