@@ -78,7 +78,9 @@ if (args.debug == 'true'){
 
 }
 
-if (args.log == "true" || args.log == null){
+if (args.log == 'false'){
+}
+else{
   const accessLog = fs.createWriteStream('access.log', {flags:'a'})
   app.use(morgan('combined', {stream:accessLog}))
 }
@@ -187,7 +189,7 @@ app.get('/app/flip/call/:guess', (req, res) =>{
 })
 
 
-// app.use(function(req,res){
-//     res.status(404).send('404 Not found')
-// })
+app.use(function(req,res){
+    res.status(404).send('404 Not found')
+})
 
