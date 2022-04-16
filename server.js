@@ -187,7 +187,7 @@ app.get('/app/flip/call/:guess', (req, res) =>{
 })
 
 
-app.use(function(req,res){
-    res.status(404).send('404 Not found')
-})
+// app.use(function(req,res){
+//     res.status(404).send('404 Not found')
+// })
 
